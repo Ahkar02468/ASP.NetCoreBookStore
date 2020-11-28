@@ -2,25 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AKSB.BookStore.Models;
+using AKSB.BookStore.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AKSB.BookStore.Controllers
 {
     public class BookController : Controller
     {
-        public string GetAllBooks()
+        private readonly BookRepository _bookRepository = null;
+        public BookController()
         {
-            return "All books.";
+            _bookRepository = new BookRepository();
+        }
+        public List<BookModel> GetAllBooks()
+        {
+            return _bookRepository.GetAllBooks();
         }
 
-        public string GetBook(int id)
+        public BookModel GetBook(int id)
         {
-            return $"Book with id of {id}.";
+            return _bookRepository.GetBookById(id);
         }
 
-        public string SearchBooks(string bookName,string authorName)
+        public List<BookModel> SearchBooks(string bookName,string authorName)
         {
-            return $"Book with name {bookName} and author is {authorName}";
+            return _bookRepository.SearchBook(bookName,authorName);
         }
     }
 }
