@@ -10,7 +10,7 @@ namespace AKSB.BookStore.Controllers
     {
         public ViewResult Index()
         {
-            return View();
+            return View("AboutUs");
         }
 
         public ViewResult AboutUs()
