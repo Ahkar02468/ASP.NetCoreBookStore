@@ -26,7 +26,7 @@ namespace AKSB.BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseRouting();//map url to particular resource
 
             app.UseEndpoints(endpoints =>
