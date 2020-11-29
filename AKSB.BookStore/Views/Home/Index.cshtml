@@ -9,12 +9,21 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/Site.css" rel="stylesheet" />
 </head>
-<body>
-    <img src="~/images/logo.png" class="logo" alt="Logo"/>
-
-    <h1>Welcome to the book stsore aplication.</h1>
+<body class="container">
+    <img src="~/images/logo.png" class="logo" alt="Logo" />
+    <input type="button" value="Click Me" class="btn btn-primary" />
+    <h1 class="h1">Welcome to the book store aplication.</h1>
+    <h2 class="h2">This is update without rebuild.</h2>
     <p>This is the first p tag.</p>
 </body>
+<script src="~/lib/jquery/jquery.js"></script>
 </html>
+<script>
+    $(document).ready(function ()
+    {
+        //alert("Page Loaded");
+    });
+</script>
