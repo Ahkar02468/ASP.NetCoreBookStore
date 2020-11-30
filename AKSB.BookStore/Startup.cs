@@ -35,6 +35,10 @@ namespace AKSB.BookStore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+                //endpoints.MapControllerRoute(
+                    //name:"Default",
+                    //pattern: "bookapp/{controller=Home}/{action=Index}/{id?}"
+                    //);
             });
         }
     }

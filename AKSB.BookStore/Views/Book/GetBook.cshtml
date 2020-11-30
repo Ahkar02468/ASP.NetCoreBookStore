@@ -70,5 +70,30 @@
             </ul>
         </div>
     </div>
+
+    <div class="py-5 bg-light" id="similarBooks">
+        <h3 class="display-5">Similar Books</h3>
+        <div class="row">
+
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img class=" card-img-top" src="~/images/logo.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">book.Title</h5>
+                            <p class="card-text">book.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-controller="book" asp-action="getbook" asp-route-id="book.Id" class="btn btn-sm btn-outline-primary">View Detail</a>
+                                </div>
+                                <small class="text-muted">book.Author</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
