@@ -9,10 +9,12 @@ namespace AKSB.BookStore.Controllers
 {
     public class HomeController : Controller
     {
+        [ViewData]
+        public string Title { get; set; }
         public ViewResult Index()
         {
-            ViewData["property1"] = "AKSB";
-            ViewData["book"] = new BookModel() { Id = 1,Author="AHkar" };
+            Title = "AKSB";
+            //ViewData["book"] = new BookModel() { Id = 1,Author="AHkar" };
             return View();
         }
 
