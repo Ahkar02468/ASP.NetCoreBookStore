@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AKSB.BookStore.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace AKSB.BookStore.Controllers
     {
         public ViewResult Index()
         {
+            ViewData["property1"] = "AKSB";
+            ViewData["book"] = new BookModel() { Id = 1,Author="AHkar" };
             return View();
         }
 
