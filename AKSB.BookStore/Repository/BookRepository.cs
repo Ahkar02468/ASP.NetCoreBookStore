@@ -27,11 +27,11 @@ namespace AKSB.BookStore.Repository
         {
             return new List<BookModel>()
             {
-                new BookModel(){ Id=1,Title="MVC",Author="AKSB"},
-                new BookModel(){Id=2,Title="c#",Author="John" },
-                new BookModel(){Id=3,Title="Java",Author="Mayer" },
-                new BookModel(){Id=4,Title="PHP",Author="Laracast" },
-                new BookModel(){Id=5,Title="Dot Net Core",Author="PluralSight" }
+                new BookModel(){ Id=1,Title="MVC",Author="AKSB",Description="This is the description of MVC book."},
+                new BookModel(){Id=2,Title="C#",Author="John" ,Description="This is the description of C# book."},
+                new BookModel(){Id=3,Title="Java",Author="Mayer" ,Description="This is the description of Java book."},
+                new BookModel(){Id=4,Title="PHP",Author="Laracast" ,Description="This is the description of PHP book."},
+                new BookModel(){Id=5,Title="Dot Net Core",Author="PluralSight" ,Description="This is the description of Dot Net Core book."}
             };
         }
     }

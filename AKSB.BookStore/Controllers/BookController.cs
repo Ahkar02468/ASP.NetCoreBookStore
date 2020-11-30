@@ -18,7 +18,7 @@ namespace AKSB.BookStore.Controllers
         public ViewResult GetAllBooks()
         {
             var data = _bookRepository.GetAllBooks();
-            return View();
+            return View(data);
         }
 
         public BookModel GetBook(int id)
