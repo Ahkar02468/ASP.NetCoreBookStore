@@ -31,5 +31,15 @@ namespace AKSB.BookStore.Controllers
         {
             return _bookRepository.SearchBook(bookName,authorName);
         }
+
+        public ViewResult AddNewBook()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ViewResult AddNewBook(BookModel bookModel)
+        {
+            return View();
+        }
     }
 }
