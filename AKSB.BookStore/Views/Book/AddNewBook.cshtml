@@ -6,6 +6,18 @@
 @model BookModel
 <div class="container">
     <h3 class="display-5">Add New Book</h3>
+    @if (ViewBag.IsSuccess)
+    {
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congratulation! </strong>You addded new book successfully.
+    <p>Click <a asp-controller="book" asp-action="getbook" asp-route-id="@ViewBag.BookId">here</a> to see details.</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+    }
+
+    
     <form method="post">
         <div class="form-group">
             <label asp-for="Title"></label>

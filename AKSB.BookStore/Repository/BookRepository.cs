@@ -1,4 +1,5 @@
-﻿using AKSB.BookStore.Models;
+﻿using AKSB.BookStore.Data;
+using AKSB.BookStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,27 @@ namespace AKSB.BookStore.Repository
 {
     public class BookRepository
     {
+        private readonly BookStoreContext _bookStoreContext = null;
+        public BookRepository(BookStoreContext bookStoreContext)
+        {
+            _bookStoreContext = bookStoreContext; 
+        }
+        public int AddNewBook(BookModel model)
+        {
+            var newBook = new Books()
+            {
+                Author = model.Author,
+                CreatedOn = DateTime.UtcNow,
+                Description = model.Description,
+                Title = model.Title,
+                TotalPages = model.TotalPages,
+                UpdatedOn = DateTime.UtcNow
+            };
+            _bookStoreContext.Add(newBook);
+            _bookStoreContext.SaveChanges();
+
+            return newBook.Id;
+        }
         public List<BookModel> GetAllBooks()
         {
             return DataSource();
