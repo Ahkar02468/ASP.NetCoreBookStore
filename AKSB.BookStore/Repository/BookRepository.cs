@@ -14,7 +14,7 @@ namespace AKSB.BookStore.Repository
         {
             _bookStoreContext = bookStoreContext; 
         }
-        public int AddNewBook(BookModel model)
+        public async Task<int> AddNewBook(BookModel model)
         {
             var newBook = new Books()
             {
@@ -25,8 +25,8 @@ namespace AKSB.BookStore.Repository
                 TotalPages = model.TotalPages,
                 UpdatedOn = DateTime.UtcNow
             };
-            _bookStoreContext.Add(newBook);
-            _bookStoreContext.SaveChanges();
+            await _bookStoreContext.AddAsync(newBook);
+            await _bookStoreContext.SaveChangesAsync();
 
             return newBook.Id;
         }
