@@ -8,8 +8,6 @@ namespace AKSB.BookStore.Models
 {
     public class BookModel
     {
-        [DataType(DataType.Date)]
-        public string MyField { get; set; }
         public int Id { get; set; }
         [Required(ErrorMessage ="Please enter the title.")]
         [StringLength(100,MinimumLength =10)]
