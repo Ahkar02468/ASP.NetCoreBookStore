@@ -49,6 +49,7 @@ namespace AKSB.BookStore.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
+            ModelState.AddModelError("", "This is custom error");
             return View();
         }
     }
