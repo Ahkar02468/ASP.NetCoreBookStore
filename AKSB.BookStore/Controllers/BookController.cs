@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AKSB.BookStore.Models;
 using AKSB.BookStore.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AKSB.BookStore.Controllers
 {
@@ -34,6 +35,7 @@ namespace AKSB.BookStore.Controllers
 
         public ViewResult AddNewBook(bool isSuccess = false,int bookId=0)
         {
+            ViewBag.Laguage = new SelectList(new List<string> { "English","Chinese","Myanmar"});
             ViewBag.BookId = bookId;
             ViewBag.IsSuccess = isSuccess;
             return View();
@@ -49,6 +51,7 @@ namespace AKSB.BookStore.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
+            ViewBag.Laguage = new SelectList(new List<string> { "English", "Chinese", "Myanmar" });
             ModelState.AddModelError("", "This is custom error");
             return View();
         }
