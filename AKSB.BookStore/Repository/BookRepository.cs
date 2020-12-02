@@ -54,9 +54,24 @@ namespace AKSB.BookStore.Repository
             return books;
         }
 
-        public BookModel GetBookById(int id)
+        public async Task<BookModel> GetBookById(int id)
         {
-            return DataSource().Where(x => x.Id == id).FirstOrDefault();
+            var book = await _bookStoreContext.Books.FindAsync(id);
+            if (book != null)
+            {
+                var bookDetail = new BookModel()
+                {
+                    Author = book.Author,
+                    Category = book.Category,
+                    Description = book.Description,
+                    Id = book.Id,
+                    Language = book.Language,
+                    Title = book.Title,
+                    TotalPages = book.TotalPages
+                };
+                return bookDetail;
+            }
+            return null;
         }
 
         public List<BookModel> SearchBook(string title,string authorName)

@@ -21,9 +21,9 @@ namespace AKSB.BookStore.Controllers
             return View(data);
         }
 
-        public ViewResult GetBook(int id)
+        public async Task<ViewResult> GetBook(int id)
         {
-            var data = _bookRepository.GetBookById(id);
+            var data = await _bookRepository.GetBookById(id);
             return View(data);
         }
 
