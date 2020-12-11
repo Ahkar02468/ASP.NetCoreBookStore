@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AKSB.BookStore.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace AKSB.BookStore.Models
         public string Description { get; set; }
         public string Category { get; set; }
         public string Language { get; set; }
+        [Required(ErrorMessage ="Choose the language of the books.")]
+        public LanguageEnum LanguageEnum { get; set; }
         [Required(ErrorMessage = "Please enter the total pages.")]
         [Display(Name ="Total Pages of book")]
         public int? TotalPages { get; set; }

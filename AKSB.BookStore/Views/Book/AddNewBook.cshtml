@@ -1,4 +1,4 @@
-﻿
+﻿@using AKSB.BookStore.Enum
 @{
     ViewData["Title"] = "Add New Book";
     Layout = "_Layout";
@@ -23,11 +23,11 @@
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Language"></label>
-                <select asp-for="Language" class="form-control" asp-items="ViewBag.Laguage" required>
+                <label asp-for="LanguageEnum"></label>
+                <select asp-for="LanguageEnum" class="form-control" asp-items="Html.GetEnumSelectList<LanguageEnum>()" required>
                     <option value="">Select your language</option>
                 </select>
-                <span asp-validation-for="Language" class="text-danger"></span>
+                <span asp-validation-for="LanguageEnum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Title"></label>

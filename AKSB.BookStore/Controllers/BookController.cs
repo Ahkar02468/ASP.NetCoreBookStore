@@ -35,14 +35,14 @@ namespace AKSB.BookStore.Controllers
 
         public ViewResult AddNewBook(bool isSuccess = false,int bookId=0)
         {
-            var model = new BookModel()
-            {
-                Language = "2"
-            };
+            //var model = new BookModel()
+            //{
+            //    Language = "2"
+            //};
             ViewBag.Laguage = new SelectList(GetLanguage(),"Id","Text");
             ViewBag.BookId = bookId;
             ViewBag.IsSuccess = isSuccess;
-            return View(model);
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
