@@ -14,7 +14,8 @@ namespace AKSB.BookStore.Data
         }
 
         public DbSet<Books> Books { get; set; }//become books table
+        public DbSet<Language> Languages { get; set; }
 
-        
+
     }
 }

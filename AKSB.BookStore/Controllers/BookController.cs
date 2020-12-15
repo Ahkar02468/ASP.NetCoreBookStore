@@ -12,9 +12,11 @@ namespace AKSB.BookStore.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _bookRepository = null;
-        public BookController(BookRepository bookRepository)
+        private readonly LanguageRepository _languageRepository = null;
+        public BookController(BookRepository bookRepository,LanguageRepository languageRepository)
         {
             _bookRepository = bookRepository;
+            _languageRepository = languageRepository;
         }
         public async Task<ViewResult> GetAllBooks()
         {
@@ -33,16 +35,14 @@ namespace AKSB.BookStore.Controllers
             return _bookRepository.SearchBook(bookName,authorName);
         }
 
-        public ViewResult AddNewBook(bool isSuccess = false,int bookId=0)
+        public async Task<ViewResult> AddNewBook(bool isSuccess = false,int bookId=0)
         {
-            //var model = new BookModel()
-            //{
-            //    Language = "2"
-            //};
-            ViewBag.Laguage = new SelectList(GetLanguage(),"Id","Text");
+            var model = new BookModel();
+            //ViewBag.Laguage = new SelectList(GetLanguage(),"Id","Text");
+            ViewBag.Laguage = new SelectList(await _languageRepository.GetLanguages(),"Id","Name");
             ViewBag.BookId = bookId;
             ViewBag.IsSuccess = isSuccess;
-            return View();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
@@ -55,17 +55,9 @@ namespace AKSB.BookStore.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
-            ViewBag.Laguage = new SelectList(GetLanguage(), "Id", "Text");
+            ViewBag.Laguage = new SelectList(await _languageRepository.GetLanguages(), "Id", "Name"); 
             return View();
         }
-        private List<LanguageModel> GetLanguage()
-        {
-            return new List<LanguageModel>()
-            {
-                new LanguageModel(){Id = 1 , Text = "English"},
-                new LanguageModel(){Id = 2 , Text = "Chinese"},
-                new LanguageModel(){Id = 3 , Text = "Myanmar"}
-            };
-        }
+        
     }
 }
