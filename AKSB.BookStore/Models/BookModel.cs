@@ -1,4 +1,5 @@
 ﻿using AKSB.BookStore.Enum;
+using AKSB.BookStore.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,9 @@ namespace AKSB.BookStore.Models
     public class BookModel
     {
         public int Id { get; set; }
-        [Required(ErrorMessage ="Please enter the title.")]
-        [StringLength(100,MinimumLength =2)]
+        //[Required(ErrorMessage ="Please enter the title.")]
+        //[StringLength(100,MinimumLength =2)]
+        [MyCustomValidation("abc")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter the author name.")]
         public string Author { get; set; }
