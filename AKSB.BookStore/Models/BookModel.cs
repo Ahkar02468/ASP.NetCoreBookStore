@@ -14,6 +14,8 @@ namespace AKSB.BookStore.Models
         //[Required(ErrorMessage ="Please enter the title.")]
         //[StringLength(100,MinimumLength =2)]
         [MyCustomValidation("abc")]
+        [Required]
+        [MinLength(3)]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter the author name.")]
         public string Author { get; set; }
